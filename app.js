@@ -2,15 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const getrequests = require('./getrequests');
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 getrequests.hello();
-const port = 3000;
+const port = 9000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World, from express');
+  res.sendFile(path.join(__dirname + '/index.html'));
 
   // axios.get() or fetch('url', { header: 'AUTH' })
 });

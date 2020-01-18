@@ -4,9 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+
+      #container {
+        width: 100%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #map {
+        height: 20rem;
+        width: 20rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
     <title>OuTrack</title>
   </head>
   <body>
-    <button>Track</button>
+    <a href="./">Track</a>
+    <div id="container">
+      <div id="map"></div>
+    </div>
+
+    <script
+      src="https://js.radar.io/v1.1.0/radar.min.js"
+      integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+      Radar.initialize('prj_live_pk_e9c1214782590224d7ebac0ea7169d18ba5a7c65');
+      Radar.setUserId('1');
+      Radar.setDescription('user1');
+      Radar.trackOnce(function(status, location, user, events) {
+        let userLat = location.latitude;
+        let userLong = location.longitude;
+
+        startMap(userLat, userLong);
+      });
+
+      function formatCode(object) {
+        return JSON.stringify(object, null, '  ');
+      }
+    </script>
+
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: 0, lng: 0 },
+          zoom: 20
+        });
+      }
+      function startMap(lat, lng) {
+        map.setCenter({ lat, lng });
+      }
+    </script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsVwLB660--UUov-kebC8bFF_cy30FRMs&callback=initMap"
+      async
+      defer
+    ></script>
   </body>
 </html>
