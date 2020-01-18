@@ -34,6 +34,18 @@
     <title>OuTrack</title>
   </head>
   <body>
+    <!-- TODO:
+
+//let ppl put in their address and create geofence around their house
+
+    Get text notification via notifize if child exits geofence
+    
+    ask alexa 'where is my child'
+    
+    Convert Lat and Long into an Address 
+    
+    alexa response 'your child is near _______ (address)' -->
+
     <a href="./">Track</a>
     <div id="container">
       <div id="map"></div>
@@ -46,7 +58,7 @@
     ></script>
 
     <script type="text/javascript">
-      Radar.initialize('prj_live_pk_e9c1214782590224d7ebac0ea7169d18ba5a7c65');
+      Radar.initialize('prj_live_pk_19b78afc36ec82f04bbdded9ad2b39a469ff4d7f');
       Radar.setUserId('1');
       Radar.setDescription('user1');
       Radar.trackOnce(function(status, location, user, events) {
