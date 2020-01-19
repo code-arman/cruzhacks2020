@@ -30,3 +30,11 @@ app.listen(port, () =>
 //get location
 
 //find out if it's outside of the location
+
+// refresh on kids page
+setTimeout(function(){
+  $('#alert-success').slideUp('slow').fadeOut(function() {
+      window.location.reload();
+      /* or window.location = window.location.href; */
+  });
+}, 5000);
