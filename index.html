@@ -72,6 +72,29 @@
       function startMap(lat, lng) {
         map.setCenter({ lat, lng });
       }
+
+      // let request = new XMLHttpRequest();
+      // request.onreadystatechange = function() {
+      //   if (this.readyState === 4) {
+      //     console.log(this.status);
+      //     console.log(this.responseText);
+      //   }
+      // };
+      // request.open(
+      //   'POST',
+      //   'https://events-api.notivize.com/applications/33a7f3b1-8cce-473c-a7a3-ce92a3c2f0b7/event_flows/f8509c47-8265-48ff-96c1-732d878edd08/events',
+      //   true
+      // );
+      // request.setRequestHeader('Content-Type', 'application/json');
+      // request.send(
+      //   JSON.stringify({
+      //     event: '<value for event>',
+      //     Parent: '<value for Parent>',
+      //     type: '<value for type>',
+      //     'user.entered_geofence': '<value for user.entered_geofence>',
+      //     'user.exited_geofence': '<value for user.exited_geofence>'
+      //   })
+      // );
     </script>
 
     <script
