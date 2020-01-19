@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <link rel="icon" href="https://res.cloudinary.com/damnzwekj/image/upload/c_scale,dpr_3.0,f_auto,q_auto,w_200/v1/TogaHacks/team/Arman_Rafati_eunebi.jpg">
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -37,6 +34,7 @@
     <title>OuTrack</title>
   </head>
   <body>
+    <h1>Stevenson Event Center, Santa Cruz, CA 95064</h1>
     <a href="./">Track</a>
     <div id="container">
       <div id="map"></div>
@@ -52,6 +50,7 @@
       Radar.initialize('prj_live_pk_e9c1214782590224d7ebac0ea7169d18ba5a7c65');
       Radar.setUserId('1');
       Radar.setDescription('user1');
+
       Radar.trackOnce(function(status, location, user, events) {
         console.log(location);
         let userLat = location.latitude;
@@ -71,12 +70,19 @@
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: 36.997, lng: -122.0523 },
+          center: { lat: 0, lng: 0 },
           zoom: 20
         });
       }
       function startMap(lat, lng) {
         map.setCenter({ lat, lng });
+
+        let mapUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDsVwLB660--UUov-kebC8bFF_cy30FRMs`;
+
+        fetch(mapUrl).then(async response => {
+          let data = await response.json();
+          console.log(data);
+        });
       }
     </script>
 
