@@ -22,9 +22,9 @@ function hello() {
       let randnum = Math.random() * 1;
       console.log(randnum);
       if (randnum > 0.5) {
-        newOne('true');
+        newOne(true);
       } else {
-        newOne('false');
+        newOne(false);
       }
     });
   }, 1000 * 5 * 1);
@@ -41,7 +41,7 @@ function newOne(userExorEnt) {
   };
   request.open(
     'POST',
-    'https://events-api.notivize.com/applications/33a7f3b1-8cce-473c-a7a3-ce92a3c2f0b7/event_flows/859a1363-c501-42f8-b612-2765938aca5b/events',
+    'https://events-api.notivize.com/applications/33a7f3b1-8cce-473c-a7a3-ce92a3c2f0b7/event_flows/dec4b42e-61bc-46af-98e7-de658591be0f/events',
     true
   );
   request.setRequestHeader('Content-Type', 'application/json');
