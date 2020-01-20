@@ -2,8 +2,6 @@ const fetch = require('node-fetch');
 const Radar = require('radar-sdk-js');
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
-//import Radar from 'radar-sdk-js';
-
 function hello() {
   var obj = {
     method: 'GET',
@@ -15,28 +13,27 @@ function hello() {
   setInterval(() => {
     fetch('https://api.radar.io/v1/events', obj).then(async response => {
       let data = await response.json();
-      console.log(data);
-      //   console.log(data.events[0].type);
       let info = data.events[0].type;
-
+      //simulate enter and exit of geofence
       let randnum = Math.random() * 1;
-      console.log(randnum);
-      if (randnum > 0.5) {
+      if (randnum > 0.8) {
+        console.log('User has exited -- check email');
         newOne(true);
       } else {
+        console.log('User has is still inside');
         newOne(false);
       }
     });
-  }, 1000 * 5 * 1);
+  }, 1000 * 5 * 1); //every 5 seconds
 }
 
 function newOne(userExorEnt) {
-  console.log(userExorEnt);
+  // console.log(userExorEnt);
   let request = new XMLHttpRequest();
   request.onreadystatechange = function() {
     if (this.readyState === 4) {
-      console.log(this.status);
-      console.log(this.responseText);
+      // console.log(this.status);
+      // console.log(this.responseText);
     }
   };
   request.open(
@@ -57,7 +54,3 @@ module.exports = {
   hello,
   newOne
 };
-
-//use google to find address
-
-//create 50m geofence around address

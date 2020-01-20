@@ -17,16 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  console.log('receiving data ...');
-  console.log('body is ', req.body);
   res.send(req.body);
 });
 
-app.listen(port, () =>
-  console.log(`Hello world app listening on port ${port}!`)
-);
-//click button
-
-//get location
-
-//find out if it's outside of the location
+app.listen(port, () => console.log(`---OuTrack started---`));
